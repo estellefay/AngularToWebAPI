@@ -130,3 +130,6 @@ E:\Projets\tuto2\WebAPI\WebAPI\bin\ko\System.Spatial.resources.dll
 E:\Projets\tuto2\WebAPI\WebAPI\bin\ru\System.Spatial.resources.dll
 E:\Projets\tuto2\WebAPI\WebAPI\bin\zh-Hans\System.Spatial.resources.dll
 E:\Projets\tuto2\WebAPI\WebAPI\bin\zh-Hant\System.Spatial.resources.dll
+E:\Projets\tuto2\WebAPI\WebAPI\bin\System.Web.Cors.dll
+E:\Projets\tuto2\WebAPI\WebAPI\bin\System.Web.Http.Cors.dll
+E:\Projets\tuto2\WebAPI\WebAPI\bin\System.Web.Http.Cors.xml

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/shared/order.service';
 import { NgForm } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { OrderItemsComponent } from '../order-items/order-items.component';
 
 @Component({
@@ -12,7 +12,7 @@ import { OrderItemsComponent } from '../order-items/order-items.component';
 export class OrderComponent implements OnInit {
 
   //Inclure Order service dans le constructeur 
-  constructor(private service:OrderService,
+  constructor(public service:OrderService,
     //Objet dialogue 
     private dialog:MatDialog) { }
 
@@ -36,8 +36,14 @@ export class OrderComponent implements OnInit {
   }
 
   AddOrEditeOrderItem(orderItemIndex, OrderID){
-    //J'ouvre un fenetre de dialogue contnant OrderItemComenent
-    this.dialog.open(OrderItemsComponent);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width="50%";
+    dialogConfig.data = {orderItemIndex, OrderID};
+
+    //J'ouvre un fenetre de dialogue contenant OrderItemComenent
+    this.dialog.open(OrderItemsComponent, dialogConfig);
   }
 
 }

@@ -18,6 +18,7 @@ namespace WebAPI.Models
         public DBModel()
             : base("name=DBModel")
         {
+            base.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
