@@ -49,7 +49,7 @@
       <th>Quantity</th>
       <th>Total</th>
       <th>
-        <a class="btn btn-sm btn-sucess text-black" (click)="AddOrEditeOrderItem(null, service.formData.OrderID)"><i class="fa fa-plus"></i>Add Item</a>
+        <a class="btn btn-sm btn-success text-white" (click)="AddOrEditeOrderItem(null, service.formData.OrderID)"><i class="fa fa-plus"></i>Add Item</a>
       </th>
     </thead>
     <!-- On affiche uniquement si OrderItem est vide  -->
@@ -65,7 +65,7 @@
         <td>{{item.Quantity}}</td>
         <td>{{item.Total}}</td>
         <td>
-        <a class="btn btn-sm btn-info text-black" (click)="AddOrEditeOrderItem(i, service.formData.OrderID)"><i class="fa fa-pencil"></i></a>
+        <a class="btn btn-sm btn-info text-white" (click)="AddOrEditeOrderItem(i, service.formData.OrderID)"><i class="fa fa-pencil"></i></a>
         </td>
       </tr>
     </tbody>

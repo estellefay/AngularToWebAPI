@@ -11,7 +11,7 @@ export class ItemService {
 
   constructor(private http:HttpClient) { }
 
-  //Requete API -- Return list of item
+  //Requete API -- Return list of items ( les articles )
   getItemList() {
     return this.http.get(environment.apiURL+'/Item').toPromise();
   }
