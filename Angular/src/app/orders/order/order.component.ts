@@ -43,12 +43,24 @@ export class OrderComponent implements OnInit {
     dialogConfig.width="50%";
     dialogConfig.data = {orderItemIndex, OrderID};
     //J'ouvre un fenetre de dialogue contenant OrderItemComenent
-    this.dialog.open(OrderItemsComponent, dialogConfig);
+    //Quand je ferme la pop up je met a jour le total de la commande
+    this.dialog.open(OrderItemsComponent, dialogConfig).afterClosed().subscribe(res=>{
+      this.updateGrandTotal();
+    });
   }
 
   //Remove item in array
   onDeleteOrderItem(orderItemID: number, i:number){
     this.service.orderItems.splice(i,1);
+    this.updateGrandTotal();
+  }
+
+  // Prix total de la commande
+  updateGrandTotal() {
+    this.service.formData.GTotal = this.service.orderItems.reduce((prev,curr)=>{
+      return prev+curr.Total;
+    },0)
+    this.service.formData.GTotal = parseFloat(this.service.formData.GTotal.toFixed(2));
 
   }
 

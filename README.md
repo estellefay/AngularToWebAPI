@@ -1,16 +1,15 @@
 # AngularToWebAPI
 Application for restaurant 
-Tutorial CodAffection (https://www.youtube.com/watch?v=R2dOyHJu4a8)
+Tutorial CodAffection (https://www.youtube.com/watch?v=R2dOyHJu4a8 and https://www.youtube.com/watch?v=8tMmqswQTl0)
 
 ### DO 
 - Create database
 - Import database in my WebApi with my models
-- TODO Create API 
-
+- Create API 
 - Create Angular
 - Routing Angular
 - Form Angular
-- TODO HttpClient with Angular
+- HttpClient with Angular
 ###Folder WebAPI
 - WebApi ASP.Net (.NETFramework,Version=v4.6.1)
 
