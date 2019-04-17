@@ -35,15 +35,21 @@ export class OrderComponent implements OnInit {
     this.service.orderItems=[];
   }
 
+  //edit or add in new pop pup
   AddOrEditeOrderItem(orderItemIndex, OrderID){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
     dialogConfig.data = {orderItemIndex, OrderID};
-
     //J'ouvre un fenetre de dialogue contenant OrderItemComenent
     this.dialog.open(OrderItemsComponent, dialogConfig);
+  }
+
+  //Remove item in array
+  onDeleteOrderItem(orderItemID: number, i:number){
+    this.service.orderItems.splice(i,1);
+
   }
 
 }

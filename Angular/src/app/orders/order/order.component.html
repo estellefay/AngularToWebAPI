@@ -3,6 +3,7 @@
 <form #form="ngForm" autocomplete="off" *ngIf="service.formData">
   <div class="row">
     <div class="col-md-6">
+
       <div class="form-group">
         <label>Order No.</label>
         <div class="input-group">
@@ -66,6 +67,7 @@
         <td>{{item.Total}}</td>
         <td>
         <a class="btn btn-sm btn-info text-white" (click)="AddOrEditeOrderItem(i, service.formData.OrderID)"><i class="fa fa-pencil"></i></a>
+        <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDeleteOrderItem(item.OrderItemID,i)"><i class="fa fa-trash"></i></a>
         </td>
       </tr>
     </tbody>

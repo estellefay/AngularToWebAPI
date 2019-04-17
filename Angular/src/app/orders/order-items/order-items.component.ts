@@ -38,17 +38,25 @@ export class OrderItemsComponent implements OnInit {
       res => this.itemList = res as Item[]
     );
 
-    // Initialiser le formulaire
-    this.formData = {
-      OrderItemID:null,
-      OrderID: this.data.OrderID,
-      ItemID:0,
-      ItemName:'',
-      Price:0,
-      Quantity:0,
-      Total:0
+    // Si les info sont de l'index sont null je met un formulaire non remplie
+    if (this.data.orderItemIndex==null) {
+      // Initialiser le formulaire
+      this.formData = {
+        OrderItemID:null,
+        OrderID: this.data.OrderID,
+        ItemID:0,
+        ItemName:'',
+        Price:0,
+        Quantity:0,
+        Total:0
+      }
+      //Sinon je le préremplie
+    } else {
+        // Avec les donner récupérer ( Update des info )
+        this.formData = Object.assign({},this.orderService.orderItems[this.data.orderItemIndex]);
     }
   }
+
 
   // Mise à jour de prix en fonciton de la selection
   updatePrice(ctrl) {
@@ -72,7 +80,11 @@ export class OrderItemsComponent implements OnInit {
   onSubmit(form:NgForm){
     //
     if (this.validateForm(form.value)) {
-      this.orderService.orderItems.push(form.value);
+      //Si l'index est égale à nul
+      if(this.data.orderItemIndex==null)
+        this.orderService.orderItems.push(form.value);
+      else
+        this.orderService.orderItems[this.data.orderItemIndex] = form.value;
       this.dialogRef.close();  
     }
   }
