@@ -18,6 +18,7 @@
         <label>Customer</label>
         <select name="CustomerID" #CustumerID="ngModel" [(ngModel)]="service.formData.CustomerID" class="form-control">
           <option value="0">-Select-</option>
+          <option *ngFor="let item of customerList" value="{{item.CustomerID}}">{{item.Name}}</option>
         </select>
       </div>
 
