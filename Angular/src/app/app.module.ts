@@ -17,6 +17,8 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatDialogModule} from '@angular/material/dialog';
 // HttpCLient
 import { HttpClientModule } from '@angular/common/http';
+//ToastrMoDULE 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatCheckboxModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   entryComponents:[OrderItemsComponent],
   providers: [OrderService],

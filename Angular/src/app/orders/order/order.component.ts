@@ -5,6 +5,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { OrderItemsComponent } from '../order-items/order-items.component';
 import { CustomerService } from 'src/app/shared/costumer.service';
 import { Customer } from 'src/app/shared/customer.model';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -21,8 +23,9 @@ export class OrderComponent implements OnInit {
     public service:OrderService,
     //Objet dialogue 
     private dialog:MatDialog,
-    private customerService: CustomerService) 
-  { }
+    private customerService: CustomerService,
+    private toastr: ToastrService,
+    private router: Router) { }
 
   ngOnInit() {
     this.resetForm();
@@ -88,7 +91,9 @@ export class OrderComponent implements OnInit {
       this.service.saveOrUpdateOrder().subscribe(res => {
         //On repasse à un formulaire vide ( comme lorsqu'ont refresh la page)
         debugger
-        this.resetForm();        
+        this.resetForm();
+        this.toastr.success('Submitted Successfully', 'Restaurant App'); 
+        this.router.navigate(['/orders']);  
       })
     }
   }
