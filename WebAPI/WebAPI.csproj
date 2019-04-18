@@ -212,7 +212,7 @@
     <Compile Include="Models\Order.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OrderIems.cs">
+    <Compile Include="Models\OrderItems.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

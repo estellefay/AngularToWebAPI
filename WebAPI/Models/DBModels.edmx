@@ -145,7 +145,7 @@
           <NavigationProperty Name="Order2" Relationship="Self.FK_Order_Order" FromRole="Order1" ToRole="Order" />
           <NavigationProperty Name="OrderIems" Relationship="Self.FK_OrderIems_Order" FromRole="Order" ToRole="OrderIems" />
         </EntityType>
-        <EntityType Name="OrderIems">
+        <EntityType Name="OrderItems">
           <Key>
             <PropertyRef Name="OrderItemID" />
           </Key>
@@ -170,7 +170,7 @@
         </Association>
         <Association Name="FK_OrderIems_Item">
           <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
-          <End Role="OrderIems" Type="Self.OrderIems" Multiplicity="*" />
+          <End Role="OrderIems" Type="RestaurantDBModel.OrderItems" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Item">
               <PropertyRef Name="ItemID" />
@@ -194,7 +194,7 @@
         </Association>
         <Association Name="FK_OrderIems_Order">
           <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
-          <End Role="OrderIems" Type="Self.OrderIems" Multiplicity="*" />
+          <End Role="OrderIems" Type="RestaurantDBModel.OrderItems" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
               <PropertyRef Name="OrderID" />
@@ -208,7 +208,7 @@
           <EntitySet Name="Customer" EntityType="Self.Customer" />
           <EntitySet Name="Item" EntityType="Self.Item" />
           <EntitySet Name="Order" EntityType="Self.Order" />
-          <EntitySet Name="OrderIems" EntityType="Self.OrderIems" />
+          <EntitySet Name="OrderIems" EntityType="RestaurantDBModel.OrderItems" />
           <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Order" EntitySet="Order" />
@@ -261,7 +261,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderIems">
-            <EntityTypeMapping TypeName="RestaurantDBModel.OrderIems">
+            <EntityTypeMapping TypeName="RestaurantDBModel.OrderItems">
               <MappingFragment StoreEntitySet="OrderIems">
                 <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />

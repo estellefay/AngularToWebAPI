@@ -90,7 +90,6 @@ E:\Projets\tuto2\WebAPI\WebAPI\bin\fr\System.Web.Razor.resources.dll
 E:\Projets\tuto2\WebAPI\WebAPI\bin\fr\System.Web.WebPages.resources.dll
 E:\Projets\tuto2\WebAPI\WebAPI\bin\fr\System.Web.WebPages.Deployment.resources.dll
 E:\Projets\tuto2\WebAPI\WebAPI\bin\fr\System.Web.WebPages.Razor.resources.dll
-E:\Projets\tuto2\WebAPI\WebAPI\obj\Debug\WebAPI.csprojAssemblyReference.cache
 E:\Projets\tuto2\WebAPI\WebAPI\obj\Debug\WebAPI.csproj.CoreCompileInputs.cache
 E:\Projets\tuto2\WebAPI\WebAPI\obj\Debug\WebAPI.csproj.CopyComplete
 E:\Projets\tuto2\WebAPI\WebAPI\obj\Debug\WebAPI.dll
@@ -133,3 +132,4 @@ E:\Projets\tuto2\WebAPI\WebAPI\bin\zh-Hant\System.Spatial.resources.dll
 E:\Projets\tuto2\WebAPI\WebAPI\bin\System.Web.Cors.dll
 E:\Projets\tuto2\WebAPI\WebAPI\bin\System.Web.Http.Cors.dll
 E:\Projets\tuto2\WebAPI\WebAPI\bin\System.Web.Http.Cors.xml
+E:\Projets\tuto2\WebAPI\WebAPI\obj\Debug\WebAPI.csprojAssemblyReference.cache

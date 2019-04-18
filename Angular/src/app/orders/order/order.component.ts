@@ -3,7 +3,7 @@ import { OrderService } from 'src/app/shared/order.service';
 import { NgForm } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { OrderItemsComponent } from '../order-items/order-items.component';
-import { CostumerService } from 'src/app/shared/costumer.service';
+import { CustomerService } from 'src/app/shared/costumer.service';
 import { Customer } from 'src/app/shared/customer.model';
 
 @Component({
@@ -13,13 +13,15 @@ import { Customer } from 'src/app/shared/customer.model';
 })
 export class OrderComponent implements OnInit {
 
-  customerList : Customer[];
+  customerList: Customer[];
+  isValid: boolean = true;
+
   //Inclure Order service dans le constructeur 
   constructor(
     public service:OrderService,
     //Objet dialogue 
     private dialog:MatDialog,
-    private customerService: CostumerService) 
+    private customerService: CustomerService) 
   { }
 
   ngOnInit() {
@@ -29,33 +31,30 @@ export class OrderComponent implements OnInit {
   }
 
   // generate form vide
-  resetForm(form?:NgForm) {
-    //Si le 
-    if(form=null)
+  resetForm(form?: NgForm) {
+    if (form = null)
       form.resetForm();
-    this.service.formData= {
+    this.service.formData = {
       OrderID: null,
-      OrderNo: Math.floor(100000+Math.random()*900000).toString(),
+      OrderNo: Math.floor(100000 + Math.random() * 900000).toString(),
       CustomerID: 0,
       PMethod: '',
-      GTotal:0
+      GTotal: 0,
     };
-    this.service.orderItems=[];
-  }
+    this.service.orderItems = [];
+}
 
   //edit or add in new pop pup
-  AddOrEditeOrderItem(orderItemIndex, OrderID){
+  AddOrEditOrderItem(orderItemIndex, OrderID) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
-    dialogConfig.width="50%";
-    dialogConfig.data = {orderItemIndex, OrderID};
-    //J'ouvre un fenetre de dialogue contenant OrderItemComenent
-    //Quand je ferme la pop up je met a jour le total de la commande
-    this.dialog.open(OrderItemsComponent, dialogConfig).afterClosed().subscribe(res=>{
+    dialogConfig.width = "50%";
+    dialogConfig.data = { orderItemIndex, OrderID };
+    this.dialog.open(OrderItemsComponent, dialogConfig).afterClosed().subscribe(res => {
       this.updateGrandTotal();
     });
-  }
+}
 
   //Remove item in array
   onDeleteOrderItem(orderItemID: number, i:number){
@@ -65,11 +64,34 @@ export class OrderComponent implements OnInit {
 
   // Prix total de la commande
   updateGrandTotal() {
-    this.service.formData.GTotal = this.service.orderItems.reduce((prev,curr)=>{
-      return prev+curr.Total;
-    },0)
+    this.service.formData.GTotal = this.service.orderItems.reduce((prev, curr) => {
+      return prev + curr.Total;
+    }, 0);
     this.service.formData.GTotal = parseFloat(this.service.formData.GTotal.toFixed(2));
+}
 
+  //Verifier que le form est valid
+  validateForm() {
+    this.isValid = true;
+    //Id du client non valide
+    if (this.service.formData.CustomerID==0) {
+      this.isValid = false;
+      //Si la comande est vide
+    } else if (this.service.orderItems.length==0) {
+      this.isValid = false;
+    }
+    return this.isValid;   
   }
 
+  onSubmit(form: NgForm) {
+    if (this.validateForm()) {
+      this.service.saveOrUpdateOrder().subscribe(res => {
+        //On repasse à un formulaire vide ( comme lorsqu'ont refresh la page)
+        debugger
+        this.resetForm();        
+      })
+    }
+  }
 }
+
+

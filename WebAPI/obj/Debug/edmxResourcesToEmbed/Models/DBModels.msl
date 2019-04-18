@@ -30,7 +30,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderIems">
-      <EntityTypeMapping TypeName="RestaurantDBModel.OrderIems">
+      <EntityTypeMapping TypeName="RestaurantDBModel.OrderItems">
         <MappingFragment StoreEntitySet="OrderIems">
           <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />

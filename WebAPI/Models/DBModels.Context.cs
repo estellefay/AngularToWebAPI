@@ -18,7 +18,6 @@ namespace WebAPI.Models
         public DBModel()
             : base("name=DBModel")
         {
-            base.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -29,6 +28,6 @@ namespace WebAPI.Models
         public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<Item> Item { get; set; }
         public virtual DbSet<Order> Order { get; set; }
-        public virtual DbSet<OrderIems> OrderIems { get; set; }
+        public virtual DbSet<OrderItems> OrderIems { get; set; }
     }
 }

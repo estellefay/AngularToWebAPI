@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="RestaurantDBModel.Customer" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="RestaurantDBModel.Item" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="RestaurantDBModel.Order" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="RestaurantDBModel.OrderIems" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantDBModel.OrderItems" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <AssociationConnector Association="RestaurantDBModel.FK_Order_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="RestaurantDBModel.FK_OrderIems_Item" ManuallyRouted="false" />
         <AssociationConnector Association="RestaurantDBModel.FK_Order_Order" ManuallyRouted="false" />

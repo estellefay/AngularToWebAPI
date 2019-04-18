@@ -12,7 +12,7 @@ namespace WebAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderIems
+    public partial class OrderItems
     {
         public long OrderItemID { get; set; }
         public Nullable<long> OrderID { get; set; }
