@@ -18,7 +18,7 @@ export class OrderService {
   saveOrUpdateOrder() {
     var body = {
       ...this.formData,
-      OrderItems: this.orderItems
+      OrderIems: this.orderItems
     };
   return this.http.post(environment.apiURL + '/Order', body);
   }
